@@ -2,6 +2,12 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue'
+import ModalComponent from './components/ModalComponent.vue';
+
+const save = () => {
+  console.log('save');
+}
+
 </script>
 
 <template>
@@ -14,6 +20,24 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Launch demo modal
+  </button>
+  <ModalComponent
+    name="exampleModal"
+    title="Modal title"
+    decision="Save"
+    @acceptAction="save"
+  >
+   <template #main>
+      <p>Here might be a content</p>
+    </template>
+  </ModalComponent>
 </template>
 
 <style scoped>
