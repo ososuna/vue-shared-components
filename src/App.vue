@@ -3,6 +3,20 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue'
 import ModalComponent from './components/ModalComponent.vue';
+import SharedTableComponent from './components/SharedTableComponent.vue';
+
+const cols = [
+  {
+    name: 'Name',
+    key: 'name',
+    sortable: true
+  },
+  {
+    name: 'Url',
+    key: 'url',
+    sortable: true
+  }
+]
 
 const save = () => {
   console.log('save');
@@ -38,6 +52,10 @@ const save = () => {
       <p>Here might be a content</p>
     </template>
   </ModalComponent>
+  <SharedTableComponent
+    :cols=cols
+    url="/pokemon?limit=10&offset=0"
+  />
 </template>
 
 <style scoped>
