@@ -37,9 +37,17 @@ getData();
   <tbody>
     <tr v-for="(item, index) in items" :key="index">
       <th scope="row">{{ index+1 }}</th>
-      <td>Mark</td>
-      <td>Otto</td>
+      <td v-for="col in cols" :key="col.name">{{ item[col.key] }}</td>
     </tr>
   </tbody>
 </table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
 </template>
